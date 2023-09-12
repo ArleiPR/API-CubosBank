@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const rotas = require('./rotas');
+const { listarContas } = require('./controladores/contas');
 
 app.use(express.json());
 
