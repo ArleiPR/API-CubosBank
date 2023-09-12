@@ -1,6 +1,6 @@
 
 let { banco, contas, saques, depositos, transferencias } = require('../bancodedados');
-let contadorConta = contas.lenght +1
+let contadorConta = contas.length +1
 
 const validarCpf = (cpf, numeroConta) => {
     const cpfSistema = contas.find((conta) => {
@@ -209,9 +209,9 @@ const transferir = (req, res) => {
     
     if (valor <= 0) {
         return res.status(400).json({ "mensagem": "O valor da transferência deve ser maior que zero." });
-
-    const contaOrigem = buscarContaPorNumero(numero_conta_origem)
     }
+    const contaOrigem = buscarContaPorNumero(numero_conta_origem)
+
 
     if (!contaOrigem) {
         return res.status(404).json({ "mensagem": "Conta de origem não encontrada." });
@@ -241,7 +241,7 @@ const transferir = (req, res) => {
         valor: valor
     };
 
-    contaOrigem.transferencias.push(registroTransferencia);
+    transferencias.push(registroTransferencia);
 
     res.status(204).send();
 };
